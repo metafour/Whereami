@@ -25,6 +25,8 @@
         
         [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
         
+        [locationManager setDistanceFilter:50];
+        
         NSLog(@"Starting to update location!");
         
         [locationManager startUpdatingLocation];
