@@ -28,6 +28,10 @@
         NSLog(@"Starting to update location!");
         
         [locationManager startUpdatingLocation];
+        
+        if ([CLLocationManager headingAvailable]) {
+            [locationManager startUpdatingHeading];
+        }
     }
     
     return self;
@@ -41,6 +45,11 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSLog(@"Failed to update location: %@", error);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading
+{
+    NSLog(@"%@", newHeading);
 }
 
 - (void)dealloc
