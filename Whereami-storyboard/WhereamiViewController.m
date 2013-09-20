@@ -14,16 +14,50 @@
 
 @implementation WhereamiViewController
 
-- (void)viewDidLoad
+- (id)initWithCoder:(NSCoder *)decoder
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self = [super initWithCoder:decoder];
+    
+    if (self) {
+        locationManager = [[CLLocationManager alloc] init];
+        
+        [locationManager setDelegate:self];
+        
+        [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+        
+        NSLog(@"Starting to update location!");
+        
+        [locationManager startUpdatingLocation];
+    }
+    
+    return self;
 }
 
-- (void)didReceiveMemoryWarning
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSLog(@"%@", [locations lastObject]);
 }
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"Failed to update location: %@", error);
+}
+
+- (void)dealloc
+{
+    [locationManager setDelegate:nil];
+}
+
+//- (void)viewDidLoad
+//{
+//    [super viewDidLoad];
+//	// Do any additional setup after loading the view, typically from a nib.
+//}
+//
+//- (void)didReceiveMemoryWarning
+//{
+//    [super didReceiveMemoryWarning];
+//    // Dispose of any resources that can be recreated.
+//}
 
 @end
