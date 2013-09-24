@@ -21,6 +21,9 @@
 		016749F217EC096800EAE4BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016749D417EC096800EAE4BA /* UIKit.framework */; };
 		016749FA17EC096800EAE4BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 016749F817EC096800EAE4BA /* InfoPlist.strings */; };
 		016749FC17EC096800EAE4BA /* Whereami_storyboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 016749FB17EC096800EAE4BA /* Whereami_storyboardTests.m */; };
+		01BA939817EF61FB008EFC0A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BA939717EF61FB008EFC0A /* CoreLocation.framework */; };
+		01BA939A17EF6257008EFC0A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BA939917EF6257008EFC0A /* MapKit.framework */; };
+		01BA939D17EF8E03008EFC0A /* M4MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BA939C17EF8E03008EFC0A /* M4MapPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,10 @@
 		016749F717EC096800EAE4BA /* Whereami-storyboardTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Whereami-storyboardTests-Info.plist"; sourceTree = "<group>"; };
 		016749F917EC096800EAE4BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		016749FB17EC096800EAE4BA /* Whereami_storyboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Whereami_storyboardTests.m; sourceTree = "<group>"; };
+		01BA939717EF61FB008EFC0A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		01BA939917EF6257008EFC0A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		01BA939B17EF8E03008EFC0A /* M4MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M4MapPoint.h; sourceTree = "<group>"; };
+		01BA939C17EF8E03008EFC0A /* M4MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M4MapPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01BA939A17EF6257008EFC0A /* MapKit.framework in Frameworks */,
+				01BA939817EF61FB008EFC0A /* CoreLocation.framework in Frameworks */,
 				016749D317EC096800EAE4BA /* CoreGraphics.framework in Frameworks */,
 				016749D517EC096800EAE4BA /* UIKit.framework in Frameworks */,
 				016749D117EC096800EAE4BA /* Foundation.framework in Frameworks */,
@@ -101,6 +110,8 @@
 		016749CF17EC096800EAE4BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01BA939917EF6257008EFC0A /* MapKit.framework */,
+				01BA939717EF61FB008EFC0A /* CoreLocation.framework */,
 				016749D017EC096800EAE4BA /* Foundation.framework */,
 				016749D217EC096800EAE4BA /* CoreGraphics.framework */,
 				016749D417EC096800EAE4BA /* UIKit.framework */,
@@ -117,6 +128,8 @@
 				016749E217EC096800EAE4BA /* Main.storyboard */,
 				016749E517EC096800EAE4BA /* WhereamiViewController.h */,
 				016749E617EC096800EAE4BA /* WhereamiViewController.m */,
+				01BA939B17EF8E03008EFC0A /* M4MapPoint.h */,
+				01BA939C17EF8E03008EFC0A /* M4MapPoint.m */,
 				016749E817EC096800EAE4BA /* Images.xcassets */,
 				016749D717EC096800EAE4BA /* Supporting Files */,
 			);
@@ -200,6 +213,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Camron Schwoegler";
 				TargetAttributes = {
+					016749CC17EC096800EAE4BA = {
+						DevelopmentTeam = JEURB4BWE6;
+					};
 					016749ED17EC096800EAE4BA = {
 						TestTargetID = 016749CC17EC096800EAE4BA;
 					};
@@ -250,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01BA939D17EF8E03008EFC0A /* M4MapPoint.m in Sources */,
 				016749E117EC096800EAE4BA /* WhereamiAppDelegate.m in Sources */,
 				016749DD17EC096800EAE4BA /* main.m in Sources */,
 				016749E717EC096800EAE4BA /* WhereamiViewController.m in Sources */,
@@ -379,10 +396,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Whereami-storyboard/Whereami-storyboard-Prefix.pch";
 				INFOPLIST_FILE = "Whereami-storyboard/Whereami-storyboard-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -392,10 +412,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Whereami-storyboard/Whereami-storyboard-Prefix.pch";
 				INFOPLIST_FILE = "Whereami-storyboard/Whereami-storyboard-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -461,6 +484,7 @@
 				01674A0117EC096800EAE4BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		01674A0217EC096800EAE4BA /* Build configuration list for PBXNativeTarget "Whereami-storyboardTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +493,7 @@
 				01674A0417EC096800EAE4BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
