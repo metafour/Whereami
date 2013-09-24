@@ -29,6 +29,8 @@
 //        NSLog(@"Starting to update location!");
         
 //        [locationManager startUpdatingLocation];
+        
+        
     }
     
     return self;
@@ -63,6 +65,9 @@
 - (void)viewDidLoad
 {
     [worldView setShowsUserLocation:YES];
+    
+    // Register action for segmented control
+    [mapType addTarget:self action:@selector(mapTypeDidChange:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
@@ -111,6 +116,12 @@
     [locationTitleField setHidden:NO];
     [locationManager stopUpdatingLocation];
     
+}
+
+- (void)mapTypeDidChange:(UISegmentedControl *)sender
+{
+    NSLog(@"Changing map type: %@", [sender titleForSegmentAtIndex:[sender selectedSegmentIndex]]);
+    [worldView setMapType:[mapType selectedSegmentIndex]];
 }
 
 //- (void)viewDidLoad

@@ -17,9 +17,11 @@
     IBOutlet MKMapView *worldView;
     IBOutlet UIActivityIndicatorView *activityIndicator;
     IBOutlet UITextField *locationTitleField;
+    IBOutlet UISegmentedControl *mapType;
 }
 
 - (void)findLocation;
 - (void)foundLocation:(CLLocation *)loc;
+- (void)mapTypeDidChange:(UISegmentedControl *)sender;
 
 @end
