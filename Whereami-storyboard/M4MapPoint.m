@@ -10,8 +10,8 @@
 
 @implementation M4MapPoint
 
-@synthesize coordinate;
-@synthesize title;
+@synthesize coordinate, title, creationDate, dateFormatter;
+
 
 -(id)initWithCoordinate:(CLLocationCoordinate2D)c title:(NSString *)t
 {
@@ -19,6 +19,16 @@
     
     if (self) {
         coordinate = c;
+        creationDate = [NSDate date];
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        
+//        NSLog(@"Created on: %@", [t stringByAppendingFormat:@"Added on %@", [dateFormatter stringFromDate:creationDate]]);
+        
+//        t = [t stringByAppendingFormat:@" %@", [dateFormatter stringFromDate:creationDate]];
+        [self setSubtitle:[dateFormatter stringFromDate:creationDate]];
+        
         [self setTitle:t];
     }
     
