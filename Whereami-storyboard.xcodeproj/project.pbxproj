@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		016739481807170C00392F6F /* M4MapPointStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 016739471807170C00392F6F /* M4MapPointStore.m */; };
 		016749D117EC096800EAE4BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016749D017EC096800EAE4BA /* Foundation.framework */; };
 		016749D317EC096800EAE4BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016749D217EC096800EAE4BA /* CoreGraphics.framework */; };
 		016749D517EC096800EAE4BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016749D417EC096800EAE4BA /* UIKit.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		016739461807170C00392F6F /* M4MapPointStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M4MapPointStore.h; sourceTree = "<group>"; };
+		016739471807170C00392F6F /* M4MapPointStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M4MapPointStore.m; sourceTree = "<group>"; };
 		016749CD17EC096800EAE4BA /* Whereami-storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Whereami-storyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		016749D017EC096800EAE4BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		016749D217EC096800EAE4BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -125,6 +128,8 @@
 			children = (
 				016749DF17EC096800EAE4BA /* WhereamiAppDelegate.h */,
 				016749E017EC096800EAE4BA /* WhereamiAppDelegate.m */,
+				016739461807170C00392F6F /* M4MapPointStore.h */,
+				016739471807170C00392F6F /* M4MapPointStore.m */,
 				016749E217EC096800EAE4BA /* Main.storyboard */,
 				016749E517EC096800EAE4BA /* WhereamiViewController.h */,
 				016749E617EC096800EAE4BA /* WhereamiViewController.m */,
@@ -269,6 +274,7 @@
 				01BA939D17EF8E03008EFC0A /* M4MapPoint.m in Sources */,
 				016749E117EC096800EAE4BA /* WhereamiAppDelegate.m in Sources */,
 				016749DD17EC096800EAE4BA /* main.m in Sources */,
+				016739481807170C00392F6F /* M4MapPointStore.m in Sources */,
 				016749E717EC096800EAE4BA /* WhereamiViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

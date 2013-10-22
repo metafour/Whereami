@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@interface M4MapPoint : NSObject <MKAnnotation>
+@interface M4MapPoint : NSObject <MKAnnotation, NSCoding>
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)c title:(NSString *)t;
+- (void)encodeWithCoder:(NSCoder *)encoder;
+- (id)initWithCoder:(NSCoder *)decoder;
 
-@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+//@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;
 @property (nonatomic) NSDate *creationDate;

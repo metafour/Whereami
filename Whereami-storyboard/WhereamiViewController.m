@@ -8,6 +8,7 @@
 
 #import "WhereamiViewController.h"
 #import "M4MapPoint.h"
+#import "M4MapPointStore.h"
 
 @interface WhereamiViewController ()
 
@@ -15,12 +16,16 @@
 
 @implementation WhereamiViewController
 
+@synthesize mappoints;
+
 - (id)initWithCoder:(NSCoder *)decoder
 {
     self = [super initWithCoder:decoder];
     
     if (self) {
         locationManager = [[CLLocationManager alloc] init];
+        
+        mappoints = [[NSMutableArray alloc] init];
         
         [locationManager setDelegate:self];
         
@@ -38,7 +43,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    NSLog(@"%@", [locations lastObject]);
+//    NSLog(@"%@", [locations lastObject]);
     
     // How many seconds ago was this location created?
     CLLocation *newLocation = [locations lastObject];
@@ -54,7 +59,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    NSLog(@"Failed to update location: %@", error);
+//    NSLog(@"Failed to update location: %@", error);
 }
 
 - (void)dealloc
@@ -68,6 +73,10 @@
     
     // Register action for segmented control
     [mapType addTarget:self action:@selector(mapTypeDidChange:) forControlEvents:UIControlEventValueChanged];
+    
+    for (M4MapPoint *point in [[M4MapPointStore staticStore] allPoints]) {
+        [worldView addAnnotation:point];
+    }
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
@@ -106,6 +115,12 @@
     // Add MapPoint to current map
     [worldView addAnnotation:mappoint];
     
+    // Add MapPoint to Array for archiving
+//    [mappoints addObject:mappoint];
+    
+    // Add MapPoint to store
+    [[M4MapPointStore staticStore] addPoint:mappoint];
+    
     // Zoom to the current location
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 2500, 2500);
     [worldView setRegion:region animated:YES];
@@ -120,9 +135,28 @@
 
 - (void)mapTypeDidChange:(UISegmentedControl *)sender
 {
-    NSLog(@"Changing map type: %@", [sender titleForSegmentAtIndex:[sender selectedSegmentIndex]]);
+//    NSLog(@"Changing map type: %@", [sender titleForSegmentAtIndex:[sender selectedSegmentIndex]]);
     [worldView setMapType:[mapType selectedSegmentIndex]];
 }
+
+//- (NSString *)itemArchivePath
+//{
+//    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    
+//    NSString *documentDirectory = [documentDirectories objectAtIndex:0];
+//    
+//    return [documentDirectory stringByAppendingPathComponent:@"mappoints.archive"];
+//}
+//
+//- (BOOL)saveChanges
+//{
+//    // Returns success or failure
+//    NSString *path = [self itemArchivePath];
+//    
+//    return [NSKeyedArchiver archiveRootObject:mappoints toFile:path];
+//    
+//}
+
 
 //- (void)viewDidLoad
 //{

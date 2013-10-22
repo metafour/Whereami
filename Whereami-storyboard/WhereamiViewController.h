@@ -20,8 +20,12 @@
     IBOutlet UISegmentedControl *mapType;
 }
 
+@property (nonatomic) NSMutableArray *mappoints;
+
 - (void)findLocation;
 - (void)foundLocation:(CLLocation *)loc;
 - (void)mapTypeDidChange:(UISegmentedControl *)sender;
+//- (NSString *)itemArchivePath;
+//- (BOOL)saveChanges;
 
 @end
